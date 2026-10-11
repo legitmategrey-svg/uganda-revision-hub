@@ -1,0 +1,92 @@
+[
+  {
+    "title": "Primary revision library (P1–P6)",
+    "level": "Primary",
+    "subject": "General",
+    "year": "2026",
+    "link": "https://studyuganda.com/download/",
+    "type": "Revision Guide",
+    "description": "Use the linked revision library to look for class-appropriate primary notes, exercises and papers. Check the class and topic before downloading.",
+    "source": "StudyUganda"
+  },
+  {
+    "title": "P7 PLE past papers and revision resources",
+    "level": "P7",
+    "subject": "General",
+    "year": "2026",
+    "link": "https://studyuganda.com/download/",
+    "type": "Past Paper Library",
+    "description": "Browse primary revision resources and look for PLE past papers and practice materials.",
+    "source": "StudyUganda"
+  },
+  {
+    "title": "S1–S2 notes, exercises and revision papers",
+    "level": "S1-S2",
+    "subject": "General",
+    "year": "2026",
+    "link": "https://ugandarevisionpapers.blogspot.com/",
+    "type": "Revision Library",
+    "description": "Browse published secondary revision materials. Confirm class, subject and syllabus alignment before use.",
+    "source": "Uganda Revision Papers"
+  },
+  {
+    "title": "S3–S4 revision papers and subject notes",
+    "level": "S3-S4",
+    "subject": "General",
+    "year": "2026",
+    "link": "https://www.pastpapersuganda.com/",
+    "type": "Past Paper Library",
+    "description": "Explore available O-Level revision papers, subject notes and answers.",
+    "source": "Past Papers Uganda"
+  },
+  {
+    "title": "S4 UCE mock papers and marking guides",
+    "level": "S4",
+    "subject": "General",
+    "year": "2026",
+    "link": "https://stkizitoelearning.com/wakissha-mocks/",
+    "type": "Mock Exams",
+    "description": "Find available mock examinations and marking guides for candidate practice.",
+    "source": "St. Kizito E-Learning"
+  },
+  {
+    "title": "S5–S6 A-Level revision papers and notes",
+    "level": "S5-S6",
+    "subject": "General",
+    "year": "2026",
+    "link": "https://www.pastpapersuganda.com/",
+    "type": "Past Paper Library",
+    "description": "Explore available A-Level papers and notes. Check subject combinations and syllabus coverage.",
+    "source": "Past Papers Uganda"
+  },
+  {
+    "title": "S6 UACE papers and candidate revision",
+    "level": "S6",
+    "subject": "General",
+    "year": "2026",
+    "link": "https://www.uni2study.com/articles/uace-past-papers-uganda",
+    "type": "Revision Guide",
+    "description": "Guidance for finding UACE past papers and planning A-Level exam practice.",
+    "source": "Uni2Study"
+  },
+  {
+    "title": "Official UNEB announcements and public resources",
+    "level": "All Levels",
+    "subject": "General",
+    "year": "2026",
+    "link": "https://uneb.ac.ug/",
+    "type": "Official Resource",
+    "description": "Check official examination notices and public guidance from Uganda National Examinations Board.",
+    "source": "UNEB"
+  },
+  {
+    "title": "WAKISSHA mock papers and marking guides",
+    "level": "S5-S6",
+    "subject": "General",
+    "year": "2026",
+    "link": "https://stkizitoelearning.com/wakissha-mocks/",
+    "type": "Mock Exams",
+    "description": "Find published joint mock papers and marking guides where available.",
+    "source": "St. Kizito E-Learning"
+  }
+]
