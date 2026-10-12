@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102b52">
+  <title>Sign in | Uganda Revision Hub</title>
+  <link rel="stylesheet" href="site-pages.css">
+  
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">📚 Uganda Revision Hub<small>Learn. Practise. Achieve.</small></a>
+      <nav class="header-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="signin.html">Sign in</a>
+        <a href="signup.html">Create account</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    
+<section class="panel">
+  <h1>Sign in</h1>
+  <p class="muted">Sign-in page for Uganda Revision Hub.</p>
+  <p class="notice"><strong>Account service setup required:</strong> this page is a safe starter interface only. Sign-in will not work until a real authentication provider is configured. Do not enter a password here yet.</p>
+  <form id="signinForm">
+    <label for="email">Email address</label>
+    <input id="email" name="email" type="email" autocomplete="email" required>
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" autocomplete="current-password" required>
+    <div class="form-actions"><button type="submit">Sign in</button></div>
+  </form>
+  <p id="status" class="status" role="status">Authentication is not connected yet. No credentials are sent or stored by this page.</p>
+  <p>New here? <a href="signup.html">Create an account</a>.</p>
+</section>
+
+  </main>
+  <footer class="site-footer">
+    <p><strong>A product of LegitmateGreyTech</strong></p>
+    <p><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="cookies.html">Cookies</a></p>
+    <p>© 2026 Uganda Revision Hub</p>
+  </footer>
+  
+<script>
+document.querySelector("form").addEventListener("submit", function (event) {
+  event.preventDefault();
+  document.getElementById("status").textContent =
+    "Account sign-in/registration is not active yet. A secure authentication provider must be configured first.";
+});
+</script>
+
+</body>
+</html>
