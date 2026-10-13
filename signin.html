@@ -6,7 +6,6 @@
   <meta name="theme-color" content="#102b52">
   <title>Sign in | Uganda Revision Hub</title>
   <link rel="stylesheet" href="site-pages.css">
-  
 </head>
 <body>
   <header class="site-header">
@@ -20,36 +19,106 @@
     </div>
   </header>
   <main>
-    
-<section class="panel">
-  <h1>Sign in</h1>
-  <p class="muted">Sign-in page for Uganda Revision Hub.</p>
-  <p class="notice"><strong>Account service setup required:</strong> this page is a safe starter interface only. Sign-in will not work until a real authentication provider is configured. Do not enter a password here yet.</p>
-  <form id="signinForm">
-    <label for="email">Email address</label>
-    <input id="email" name="email" type="email" autocomplete="email" required>
-    <label for="password">Password</label>
-    <input id="password" name="password" type="password" autocomplete="current-password" required>
-    <div class="form-actions"><button type="submit">Sign in</button></div>
-  </form>
-  <p id="status" class="status" role="status">Authentication is not connected yet. No credentials are sent or stored by this page.</p>
-  <p>New here? <a href="signup.html">Create an account</a>.</p>
-</section>
-
+    <section class="panel">
+      <h1>Sign in</h1>
+      <p class="muted">Sign in to your Uganda Revision Hub learner account.</p>
+      <form id="signinForm">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+        <div class="form-actions"><button id="signinButton" type="submit">Sign in</button></div>
+      </form>
+      <p id="status" class="status" role="status" aria-live="polite">Enter your email and password to sign in.</p>
+      <p><button id="resetButton" type="button">Forgot password?</button></p>
+      <p>New here? <a href="signup.html">Create an account</a>.</p>
+      <p><a href="index.html">Return to the home page</a></p>
+    </section>
   </main>
   <footer class="site-footer">
-    <p><strong>A product of LegitmateGreyTech</strong></p>
+    <p><strong>A product of <a href="https:legitmate-greytech.legitmategrey.workers.dev/">LegitmateGreyTech</a></strong></p>
     <p><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="cookies.html">Cookies</a></p>
     <p>© 2026 Uganda Revision Hub</p>
   </footer>
-  
-<script>
-document.querySelector("form").addEventListener("submit", function (event) {
-  event.preventDefault();
-  document.getElementById("status").textContent =
-    "Account sign-in/registration is not active yet. A secure authentication provider must be configured first.";
-});
-</script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      sendPasswordResetEmail,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
 
+    const firebaseConfig = {
+      apiKey: "AIzaSyDqOMC01ll0gKLg-I6loNFLwRJIu10zxw4",
+      authDomain: "uganda-revision-hub.firebaseapp.com",
+      projectId: "uganda-revision-hub",
+      storageBucket: "uganda-revision-hub.firebasestorage.app",
+      messagingSenderId: "517472799476",
+      appId: "1:517472799476:web:f1af0ee208fe8cd3d86ca1",
+      measurementId: "G-23CZXS9G5C"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const form = document.getElementById("signinForm");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const status = document.getElementById("status");
+    const signinButton = document.getElementById("signinButton");
+    const resetButton = document.getElementById("resetButton");
+
+    function friendlyError(error) {
+      const messages = {
+        "auth/invalid-email": "Please enter a valid email address.",
+        "auth/invalid-credential": "The email or password is incorrect. Check them and try again.",
+        "auth/user-disabled": "This account has been disabled. Please contact the site administrator.",
+        "auth/too-many-requests": "Too many attempts. Please wait and try again later.",
+        "auth/network-request-failed": "Network problem. Check your internet connection.",
+        "auth/operation-not-allowed": "Email/password sign-in is not enabled in Firebase Authentication."
+      };
+      return messages[error.code] || "Sign-in failed. Please try again. (" + error.code + ")";
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      signinButton.disabled = true;
+      status.textContent = "Signing you in…";
+      try {
+        await signInWithEmailAndPassword(auth, emailInput.value.trim(), passwordInput.value);
+        status.textContent = "You are signed in successfully. You can return to the home page.";
+        passwordInput.value = "";
+      } catch (error) {
+        status.textContent = friendlyError(error);
+      } finally {
+        signinButton.disabled = false;
+      }
+    });
+
+    resetButton.addEventListener("click", async () => {
+      const email = emailInput.value.trim();
+      if (!email) {
+        status.textContent = "Enter your email address above first, then tap Forgot password again.";
+        emailInput.focus();
+        return;
+      }
+      resetButton.disabled = true;
+      status.textContent = "Sending password-reset email…";
+      try {
+        await sendPasswordResetEmail(auth, email);
+        status.textContent = "If an account exists for that email, Firebase will send a password-reset message. Check your inbox and spam folder.";
+      } catch (error) {
+        status.textContent = error.code === "auth/invalid-email"
+          ? "Please enter a valid email address."
+          : "Could not send the reset email. Check your connection and Firebase settings, then try again.";
+      } finally {
+        resetButton.disabled = false;
+      }
+    });
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) status.textContent = "You are already signed in as " + (user.email || "your account") + ".";
+    });
+  </script>
 </body>
 </html>

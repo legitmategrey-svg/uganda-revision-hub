@@ -6,7 +6,6 @@
   <meta name="theme-color" content="#102b52">
   <title>Create account | Uganda Revision Hub</title>
   <link rel="stylesheet" href="site-pages.css">
-  
 </head>
 <body>
   <header class="site-header">
@@ -20,38 +19,100 @@
     </div>
   </header>
   <main>
-    
-<section class="panel">
-  <h1>Create account</h1>
-  <p class="muted">Create a learner account for Uganda Revision Hub.</p>
-  <p class="notice"><strong>Account service setup required:</strong> this page is a safe starter interface only. Registration will not work until a real authentication provider is configured. Do not enter a password here yet.</p>
-  <form id="signupForm">
-    <label for="name">Full name (optional)</label>
-    <input id="name" name="name" type="text" autocomplete="name">
-    <label for="email">Email address</label>
-    <input id="email" name="email" type="email" autocomplete="email" required>
-    <label for="password">Create password</label>
-    <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required>
-    <div class="form-actions"><button type="submit">Create account</button></div>
-  </form>
-  <p id="status" class="status" role="status">Authentication is not connected yet. This page does not transmit or store credentials.</p>
-  <p>Already registered? <a href="signin.html">Sign in</a>.</p>
-</section>
-
+    <section class="panel">
+      <h1>Create account</h1>
+      <p class="muted">Create a learner account for Uganda Revision Hub.</p>
+      <form id="signupForm">
+        <label for="name">Full name (optional)</label>
+        <input id="name" name="name" type="text" autocomplete="name" maxlength="100">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+        <label for="password">Create password</label>
+        <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required>
+        <p class="muted">Use at least 8 characters.</p>
+        <div class="form-actions"><button id="signupButton" type="submit">Create account</button></div>
+      </form>
+      <p id="status" class="status" role="status" aria-live="polite">Your password is handled by Firebase Authentication.</p>
+      <p>Already registered? <a href="signin.html">Sign in</a>.</p>
+      <p><a href="index.html">Return to the home page</a></p>
+    </section>
   </main>
   <footer class="site-footer">
-    <p><strong>A product of LegitmateGreyTech</strong></p>
+    <p><strong>A product of <a href="https:legitmate-greytech.legitmategrey.workers.dev/">Legitmate-greytech</a></strong></p>
     <p><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="cookies.html">Cookies</a></p>
     <p>© 2026 Uganda Revision Hub</p>
   </footer>
-  
-<script>
-document.querySelector("form").addEventListener("submit", function (event) {
-  event.preventDefault();
-  document.getElementById("status").textContent =
-    "Account sign-in/registration is not active yet. A secure authentication provider must be configured first.";
-});
-</script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      updateProfile,
+      sendEmailVerification
+    } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
 
+    const firebaseConfig = {
+      apiKey: "AIzaSyDqOMC01ll0gKLg-I6loNFLwRJIu10zxw4",
+      authDomain: "uganda-revision-hub.firebaseapp.com",
+      projectId: "uganda-revision-hub",
+      storageBucket: "uganda-revision-hub.firebasestorage.app",
+      messagingSenderId: "517472799476",
+      appId: "1:517472799476:web:f1af0ee208fe8cd3d86ca1",
+      measurementId: "G-23CZXS9G5C"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const form = document.getElementById("signupForm");
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const status = document.getElementById("status");
+    const signupButton = document.getElementById("signupButton");
+
+    function friendlyError(error) {
+      const messages = {
+        "auth/email-already-in-use": "An account already uses this email. Please sign in instead.",
+        "auth/invalid-email": "Please enter a valid email address.",
+        "auth/weak-password": "Choose a stronger password with at least 8 characters.",
+        "auth/operation-not-allowed": "Email/password registration is not enabled in Firebase Authentication.",
+        "auth/network-request-failed": "Network problem. Check your internet connection.",
+        "auth/too-many-requests": "Too many attempts. Please wait and try again."
+      };
+      return messages[error.code] || "Account creation failed. Please try again. (" + error.code + ")";
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      signupButton.disabled = true;
+      status.textContent = "Creating your account…";
+      try {
+        const credential = await createUserWithEmailAndPassword(
+          auth,
+          emailInput.value.trim(),
+          passwordInput.value
+        );
+        const displayName = nameInput.value.trim();
+        if (displayName) {
+          await updateProfile(credential.user, { displayName });
+        }
+        let verificationSent = false;
+        try {
+          await sendEmailVerification(credential.user);
+          verificationSent = true;
+        } catch (verificationError) {
+          console.warn("Verification email was not sent:", verificationError.code);
+        }
+        passwordInput.value = "";
+        status.textContent = verificationSent
+          ? "Your account has been created. A verification email has been sent; check your inbox and spam folder."
+          : "Your account has been created. Email verification could not be sent right now; you can sign in and try again later.";
+      } catch (error) {
+        status.textContent = friendlyError(error);
+      } finally {
+        signupButton.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
