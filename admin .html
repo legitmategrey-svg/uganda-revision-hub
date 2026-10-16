@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#102b52">
+  <title>Admin Resource Manager | Uganda Revision Hub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <strong>📚 Uganda Revision Hub — Admin</strong>
+      <div class="header-links"><a href="index.html">View website</a><a href="signin.html">Sign in page</a></div>
+    </div>
+  </header>
+  <main class="admin-wrap">
+    <section id="loginPanel" class="panel">
+      <h1 class="admin-title">Admin sign in</h1>
+      <p>Sign in with the Firebase account authorized to manage revision resources.</p>
+      <form id="loginForm">
+        <div class="admin-form-grid">
+          <div class="admin-field full"><label for="email">Email address</label><input id="email" type="email" autocomplete="username" required></div>
+          <div class="admin-field full"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required></div>
+        </div>
+        <div class="admin-row-actions"><button class="btn" type="submit">Sign in</button></div>
+      </form>
+      <p id="loginStatus" class="admin-status" role="status"></p>
+      <p class="source">Only the configured Firebase UID is authorized. Firestore security rules must also be published correctly.</p>
+    </section>
+
+    <section id="adminPanel" class="hidden">
+      <div class="panel">
+        <h1 class="admin-title">Manage revision resources</h1>
+        <p id="signedInAs"></p>
+        <div class="admin-notice">Published resources appear in the public library. Unpublished resources are visible only to the authorized admin account. Use links to PDFs hosted in this repository or trusted external resources.</div>
+        <div class="admin-row-actions">
+          <button class="btn btn-outline" id="importStarters" type="button">Import starter library</button>
+          <button class="btn btn-outline" id="refreshResources" type="button">Refresh list</button>
+          <button class="btn btn-outline" id="logout" type="button">Sign out</button>
+        </div>
+        <p id="adminStatus" class="admin-status" role="status"></p>
+      </div>
+      <div class="panel" style="margin-top:18px">
+        <h2 class="admin-title" id="formHeading">Add a resource</h2>
+        <form id="resourceForm">
+          <input id="resourceId" type="hidden">
+          <div class="admin-form-grid">
+            <div class="admin-field full"><label for="title">Resource title *</label><input id="title" maxlength="180" required></div>
+            <div class="admin-field"><label for="level">Class / level *</label>
+              <select id="level" required>
+                <option value="P1">P1</option><option value="P2">P2</option><option value="P3">P3</option><option value="P4">P4</option><option value="P5">P5</option><option value="P6">P6</option><option value="P7">P7 Candidate / PLE</option>
+                <option value="S1">S1</option><option value="S2">S2</option><option value="S3">S3</option><option value="S4">S4 Candidate / UCE</option><option value="S5">S5</option><option value="S6">S6 Candidate / UACE</option><option value="Primary">Primary P1–P6 library</option><option value="S1-S2">S1–S2 library</option><option value="S3-S4">S3–S4 library</option><option value="S5-S6">S5–S6 library</option><option value="All Levels">All levels</option>
+              </select>
+            </div>
+            <div class="admin-field"><label for="subject">Subject</label><input id="subject" maxlength="100" placeholder="e.g. Mathematics"></div>
+            <div class="admin-field"><label for="type">Resource type *</label>
+              <select id="type" required>
+                <option>Revision Notes</option><option>Past Paper Library</option><option>Mock Exams</option><option>Practice Paper</option><option>Answers & Marking Guides</option><option>Revision Guide</option><option>Official Resource</option><option>Revision Library</option>
+              </select>
+            </div>
+            <div class="admin-field"><label for="year">Year</label><input id="year" inputmode="numeric" maxlength="4" placeholder="2026"></div>
+            <div class="admin-field full"><label for="link">PDF or resource URL *</label><input id="link" required placeholder="materials/p7-paper.pdf or https://example.com/resource" maxlength="1000"></div>
+            <div class="admin-field"><label for="source">Source / publisher</label><input id="source" maxlength="160" value="Uganda Revision Hub"></div>
+            <div class="admin-field"><label for="published">Publication status</label><select id="published"><option value="true">Published — visible to students</option><option value="false">Unpublished — admin only</option></select></div>
+            <div class="admin-field full"><label for="description">Description</label><textarea id="description" maxlength="1000" placeholder="Briefly describe the material and what it includes."></textarea></div>
+          </div>
+          <div class="admin-row-actions"><button class="btn" type="submit" id="saveResource">Save resource</button><button class="btn btn-outline" type="button" id="cancelEdit">Clear form</button></div>
+        </form>
+      </div>
+      <div class="panel" style="margin-top:18px">
+        <h2 class="admin-title">Saved resources</h2>
+        <div id="resourceList" class="admin-resources"><p>Loading resources…</p></div>
+      </div>
+    </section>
+  </main>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js';
+    import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js';
+    import { getFirestore, collection, getDocs, addDoc, doc, updateDoc, deleteDoc, setDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js';
+    import { firebaseConfig } from './firebase-config.js';
+
+    const ADMIN_UID = 'M0pDCxeBweSVBtTAA0ibjdLpq5z1';
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    const byId = id => document.getElementById(id);
+    const loginPanel = byId('loginPanel');
+    const adminPanel = byId('adminPanel');
+    const status = byId('adminStatus');
+    const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    const starterResources = [{"title":"P7 Mathematics Practice Paper","level":"P7","subject":"Mathematics","year":"2026","link":"materials/p7-mathematics-practice-paper%20(1).pdf","type":"Practice Paper","description":"Original P7 Mathematics practice paper with answer guide. This is practice material, not an official UNEB paper.","source":"Uganda Revision Hub"},{"title":"P7 English Mock Examination with Answers","level":"P7","subject":"English","year":"2026","link":"materials/p7_english_mock_examination_with_answers.pdf","type":"Mock Exams","description":"Original P7 English mock examination with answer guide and marking guidance. Non-official practice material.","source":"Uganda Revision Hub"},{"title":"Primary revision library (P1–P6)","level":"Primary","subject":"General","year":"2026","link":"https://studyuganda.com/download/","type":"Revision Guide","description":"Use the linked revision library to look for class-appropriate primary notes, exercises and papers. Check the class and topic before downloading.","source":"StudyUganda"},{"title":"P7 PLE past papers and revision resources","level":"P7","subject":"General","year":"2026","link":"https://studyuganda.com/download/","type":"Past Paper Library","description":"Browse primary revision resources and look for PLE past papers and practice materials.","source":"StudyUganda"},{"title":"S1–S2 notes, exercises and revision papers","level":"S1-S2","subject":"General","year":"2026","link":"https://ugandarevisionpapers.blogspot.com/","type":"Revision Library","description":"Browse published secondary revision materials. Confirm class, subject and syllabus alignment before use.","source":"Uganda Revision Papers"},{"title":"S3–S4 revision papers and subject notes","level":"S3-S4","subject":"General","year":"2026","link":"https://www.pastpapersuganda.com/","type":"Past Paper Library","description":"Explore available O-Level revision papers, subject notes and answers.","source":"Past Papers Uganda"},{"title":"S4 UCE mock papers and marking guides","level":"S4","subject":"General","year":"2026","link":"https://stkizitoelearning.com/wakissha-mocks/","type":"Mock Exams","description":"Find available mock examinations and marking guides for candidate practice.","source":"St. Kizito E-Learning"},{"title":"S5–S6 A-Level revision papers and notes","level":"S5-S6","subject":"General","year":"2026","link":"https://www.pastpapersuganda.com/","type":"Past Paper Library","description":"Explore available A-Level papers and notes. Check subject combinations and syllabus coverage.","source":"Past Papers Uganda"},{"title":"S6 UACE papers and candidate revision","level":"S6","subject":"General","year":"2026","link":"https://www.uni2study.com/articles/uace-past-papers-uganda","type":"Revision Guide","description":"Guidance for finding UACE past papers and planning A-Level exam practice.","source":"Uni2Study"},{"title":"Official UNEB announcements and public resources","level":"All Levels","subject":"General","year":"2026","link":"https://uneb.ac.ug/","type":"Official Resource","description":"Check official examination notices and public guidance from Uganda National Examinations Board.","source":"UNEB"},{"title":"WAKISSHA mock papers and marking guides","level":"S5-S6","subject":"General","year":"2026","link":"https://stkizitoelearning.com/wakissha-mocks/","type":"Mock Exams","description":"Find published joint mock papers and marking guides where available.","source":"St. Kizito E-Learning"}];
+    let currentUser = null;
+    let allResources = [];
+
+    function setStatus(message, isError=false) { status.textContent = message; status.style.color = isError ? '#a72c2c' : ''; }
+    function cleanLink(raw) {
+      const value = String(raw || '').trim();
+      try { const url = new URL(value, window.location.href); if (['http:', 'https:'].includes(url.protocol)) return value; } catch {}
+      throw new Error('Enter a valid web URL or a relative link such as materials/paper.pdf.');
+    }
+    function readForm() {
+      const year = byId('year').value.trim();
+      if (year && !/^\d{4}$/.test(year)) throw new Error('Year must have four digits, for example 2026.');
+      return {
+        title: byId('title').value.trim(), level: byId('level').value,
+        subject: byId('subject').value.trim() || 'General',
+        type: byId('type').value, year: year || String(new Date().getFullYear()),
+        link: cleanLink(byId('link').value), source: byId('source').value.trim() || 'Uganda Revision Hub',
+        description: byId('description').value.trim(), published: byId('published').value === 'true',
+        updatedAt: serverTimestamp()
+      };
+    }
+    async function loadResources() {
+      if (!currentUser || currentUser.uid !== ADMIN_UID) return;
+      setStatus('Loading resources…');
+      const snap = await getDocs(collection(db, 'resources'));
+      allResources = snap.docs.map(d => ({ id: d.id, ...d.data() })).sort((a,b) => String(b.year || '').localeCompare(String(a.year || '')) || String(a.title || '').localeCompare(String(b.title || '')));
+      renderResources();
+      setStatus(`Loaded ${allResources.length} resources.`);
+    }
+    function renderResources() {
+      const target = byId('resourceList');
+      if (!allResources.length) { target.innerHTML = '<p>No resources in Firebase yet. Use “Import starter library” or add your first resource.</p>'; return; }
+      target.innerHTML = allResources.map(r => `<article class="admin-resource"><div><h3>${escapeHtml(r.title || 'Untitled resource')}</h3><p>${escapeHtml(r.level || 'All levels')} · ${escapeHtml(r.subject || 'General')} · ${escapeHtml(r.type || 'Resource')} · ${escapeHtml(r.year || '')}</p><p>${escapeHtml(r.published === true ? 'Published' : 'Unpublished')} · ${escapeHtml(r.link || '')}</p></div><div class="admin-resource-actions"><button type="button" class="btn btn-outline" data-edit="${escapeHtml(r.id)}">Edit</button><button type="button" class="btn-danger" data-delete="${escapeHtml(r.id)}">Delete</button></div></article>`).join('');
+      target.querySelectorAll('[data-edit]').forEach(button => button.addEventListener('click', () => fillForm(button.dataset.edit)));
+      target.querySelectorAll('[data-delete]').forEach(button => button.addEventListener('click', () => removeResource(button.dataset.delete)));
+    }
+    function fillForm(id) {
+      const r = allResources.find(item => item.id === id); if (!r) return;
+      byId('resourceId').value = r.id;
+      ['title','level','subject','type','year','link','source','description'].forEach(key => byId(key).value = r[key] ?? (key === 'source' ? 'Uganda Revision Hub' : ''));
+      byId('published').value = r.published === false ? 'false' : 'true';
+      byId('formHeading').textContent = 'Edit resource'; byId('saveResource').textContent = 'Save changes';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function clearForm() { byId('resourceForm').reset(); byId('resourceId').value = ''; byId('source').value = 'Uganda Revision Hub'; byId('published').value = 'true'; byId('formHeading').textContent = 'Add a resource'; byId('saveResource').textContent = 'Save resource'; }
+    async function removeResource(id) {
+      const item = allResources.find(r => r.id === id); if (!item) return;
+      if (!window.confirm(`Delete “${item.title || 'this resource'}”? This cannot be undone.`)) return;
+      try { await deleteDoc(doc(db, 'resources', id)); setStatus('Resource deleted.'); await loadResources(); }
+      catch (error) { setStatus(error.message || 'Could not delete resource.', true); }
+    }
+    byId('loginForm').addEventListener('submit', async event => {
+      event.preventDefault(); byId('loginStatus').textContent = 'Signing in…';
+      try { await signInWithEmailAndPassword(auth, byId('email').value.trim(), byId('password').value); }
+      catch (error) { byId('loginStatus').textContent = 'Sign-in failed. Check the email and password, then try again.'; }
+    });
+    byId('logout').addEventListener('click', async () => { await signOut(auth); });
+    byId('refreshResources').addEventListener('click', async () => { try { await loadResources(); } catch (error) { setStatus('Could not load resources. Check Firestore rules and your internet connection.', true); } });
+    byId('cancelEdit').addEventListener('click', clearForm);
+    byId('resourceForm').addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!currentUser || currentUser.uid !== ADMIN_UID) { setStatus('This account is not authorized.', true); return; }
+      try {
+        const item = readForm();
+        if (!item.title) throw new Error('Enter a resource title.');
+        const id = byId('resourceId').value;
+        if (id) await updateDoc(doc(db, 'resources', id), item);
+        else await addDoc(collection(db, 'resources'), { ...item, createdAt: serverTimestamp() });
+        clearForm(); setStatus(id ? 'Resource updated.' : 'Resource added.'); await loadResources();
+      } catch (error) { setStatus(error.message || 'Could not save resource. Check Firestore rules.', true); }
+    });
+    byId('importStarters').addEventListener('click', async () => {
+      if (!currentUser || currentUser.uid !== ADMIN_UID) return;
+      if (!window.confirm('Import the existing homepage starter resources into Firebase? Existing starter entries with the same IDs will be left unchanged.')) return;
+      try {
+        let added = 0;
+        for (const item of starterResources) {
+          const slug = String(item.title || 'resource').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 70);
+          const id = 'starter-' + slug;
+          if (allResources.some(existing => existing.id === id)) continue;
+          await setDoc(doc(db, 'resources', id), { ...item, published: true, createdAt: serverTimestamp(), updatedAt: serverTimestamp() });
+          added++;
+        }
+        setStatus(`Starter import complete. Added ${added} new resources.`); await loadResources();
+      } catch (error) { setStatus(error.message || 'Import failed. Check Firestore rules.', true); }
+    });
+    onAuthStateChanged(auth, async user => {
+      currentUser = user;
+      if (!user) { loginPanel.classList.remove('hidden'); adminPanel.classList.add('hidden'); byId('signedInAs').textContent = ''; return; }
+      if (user.uid !== ADMIN_UID) {
+        loginPanel.classList.remove('hidden'); adminPanel.classList.add('hidden');
+        byId('loginStatus').textContent = 'This Firebase account is not authorized to manage resources. Sign in with the authorized admin account.';
+        return;
+      }
+      loginPanel.classList.add('hidden'); adminPanel.classList.remove('hidden');
+      byId('signedInAs').textContent = `Signed in as ${user.email || 'authorized admin'}.`;
+      try { await loadResources(); } catch (error) { setStatus('Could not load resources. Firestore rules may need to be updated.', true); byId('resourceList').innerHTML = '<p>Resource list unavailable. Check that the new Firestore rules are published.</p>'; }
+    });
+  </script>
+</body>
+</html>

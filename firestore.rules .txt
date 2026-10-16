@@ -1,0 +1,22 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.uid == "M0pDCxeBweSVBtTAA0ibjdLpq5z1";
+    }
+
+    match /resources/{resourceId} {
+      // Students may read only documents explicitly marked as published.
+      // The public homepage queries with where("published", "==", true).
+      allow get, list: if isAdmin() || resource.data.published == true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // All other collections stay private until explicitly configured.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

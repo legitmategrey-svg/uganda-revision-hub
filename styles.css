@@ -94,3 +94,23 @@ button{cursor:pointer}
 main{min-height:50vh}
 @media(max-width:820px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-inner{grid-template-columns:1fr;padding-top:44px;padding-bottom:44px}.hero-art{display:none}.footer-inner{grid-template-columns:1fr 1fr}.footer-about{grid-column:1/-1}}
 @media(max-width:600px){.wrap{width:min(100% - 26px,1120px)}.topbar-inner{font-size:.78rem}.stats{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.section{padding:32px 0}.section-head{align-items:start;flex-direction:column}.search-row{flex-direction:column}.nav-inner{align-items:flex-start}.account-links{width:100%;margin:4px 0 0;justify-content:flex-start}.footer-inner{grid-template-columns:1fr;gap:22px}.footer-bottom{flex-direction:column}.cookie-banner{left:10px;right:10px;bottom:10px;align-items:stretch;flex-direction:column;gap:12px}.cookie-actions{width:100%}.cookie-actions button{flex:1}}
+
+/* Firebase admin resource manager */
+.admin-wrap{max-width:1000px;margin:28px auto;padding:0 16px 38px}
+.admin-title{margin:0 0 8px;color:var(--navy)}
+.admin-notice{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#f5f8fc;color:var(--ink);margin:12px 0}
+.admin-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.admin-field{display:flex;flex-direction:column;gap:6px}
+.admin-field.full{grid-column:1/-1}
+.admin-field label{font-weight:750;color:var(--navy);font-size:.92rem}
+.admin-field input,.admin-field select,.admin-field textarea{width:100%;padding:11px 12px;border:1px solid #cbd6e3;border-radius:10px;background:#fff;color:var(--ink)}
+.admin-field textarea{min-height:86px;resize:vertical}
+.admin-row-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.admin-resources{display:grid;gap:12px;margin-top:18px}
+.admin-resource{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;background:#fff}
+.admin-resource h3{margin:0 0 5px;color:var(--navy);font-size:1rem}
+.admin-resource p{margin:0;color:var(--muted);font-size:.9rem;overflow-wrap:anywhere}
+.admin-resource-actions{display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0}
+.btn-danger{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 12px;border:1px solid #a72c2c;border-radius:10px;background:#fff;color:#a72c2c;text-decoration:none;font-weight:750;font-size:.9rem}
+.admin-status{min-height:1.4em;margin:10px 0;color:var(--green);font-weight:650}
+@media(max-width:600px){.admin-form-grid{grid-template-columns:1fr}.admin-field.full{grid-column:auto}.admin-resource{flex-direction:column}.admin-resource-actions{width:100%}}
