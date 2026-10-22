@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102b52">
+<meta name="description" content="Read Uganda Revision Hub study notes online and download revision notes as PDFs.">
+<title>Study Notes | Uganda Revision Hub</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="notes.css">
+</head>
+<body>
+<header class="notes-header">
+  <a class="notes-brand" href="index.html">📚 Uganda Revision Hub <span>Study Notes</span></a>
+  <div class="notes-head-actions"><span id="signedInLabel">Checking account…</span><button id="signOutBtn" class="btn btn-outline" type="button" hidden>Sign out</button></div>
+</header>
+<main class="notes-shell">
+  <section id="authGate" class="auth-gate" hidden>
+    <div class="gate-icon">🔐</div><h1>Sign in to read study notes</h1>
+    <p>These notes are available to signed-in learners. Sign in or create an account to continue.</p>
+    <div class="gate-actions"><a class="btn" href="signin.html">Sign in</a><a class="btn btn-outline" href="signup.html">Create account</a></div>
+    <a class="back-link" href="index.html">← Back to homepage</a>
+  </section>
+  <div id="notesApp" hidden>
+    <section class="notes-intro">
+      <span class="eyebrow">Ugandan curriculum study support</span>
+      <h1>Read. Practise. Remember.</h1>
+      <p>Choose a class and subject to read the lesson online. Download the class PDF for offline revision, then test yourself with the questions.</p>
+      <p class="notes-caution">This is Batch 1 of the notes library. It contains starter lessons across P1–P7 and S1–S6; additional subjects and topics will be added in further batches. Always compare lessons with your teacher's current syllabus.</p>
+    </section>
+    <section class="notes-controls" aria-label="Find notes">
+      <label>Class<select id="levelSelect"></select></label>
+      <label>Subject<select id="subjectSelect"></select></label>
+      <label class="search-label">Search topics<input id="topicSearch" type="search" placeholder="Search lesson titles…"></label>
+      <button id="downloadClass" class="btn" type="button">⬇ Download class PDF</button>
+    </section>
+    <div class="notes-layout">
+      <aside class="topic-panel"><h2>Lessons</h2><div id="topicList" class="topic-list"></div></aside>
+      <article id="lessonPanel" class="lesson-panel" aria-live="polite">
+        <div id="lessonMeta" class="lesson-meta"></div><h2 id="lessonTitle">Choose a lesson</h2>
+        <div id="lessonContent"></div>
+        <section class="practice-box"><h3>Revision questions</h3><ol id="questionList"></ol><details class="answers"><summary>Show suggested answers</summary><ol id="answerList"></ol></details></section>
+        <section class="own-notes"><label for="ownNotes">My study notes <span>Saved on this device for this signed-in account</span></label><textarea id="ownNotes" rows="5" placeholder="Write your own examples, reminders or questions here…"></textarea><div class="notes-save-row"><span id="saveStatus" role="status">Your notes are saved automatically on this device.</span><button id="clearOwnNotes" class="btn btn-outline" type="button">Clear my notes</button></div></section>
+        <button id="downloadLesson" class="btn btn-outline" type="button">Print / Save this lesson as PDF</button>
+      </article>
+    </div>
+    <p class="privacy-note">Privacy note: the “My study notes” box is saved in this browser on this device; it is not synced across devices. For security, don't write passwords or sensitive personal information here.</p>
+  </div>
+</main>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyDqOMC01ll0gKLg-I6loNFLwRJIu10zxw4",
+  authDomain: "uganda-revision-hub.firebaseapp.com",
+  projectId: "uganda-revision-hub",
+  storageBucket: "uganda-revision-hub.firebasestorage.app",
+  messagingSenderId: "517472799476",
+  appId: "1:517472799476:web:f1af0ee208fe8cd3d86ca1",
+  measurementId: "G-23CZXS9G5C"
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const gate = document.getElementById("authGate");
+const notesApp = document.getElementById("notesApp");
+const signedInLabel = document.getElementById("signedInLabel");
+const signOutBtn = document.getElementById("signOutBtn");
+onAuthStateChanged(auth, user => {
+  if (user) {
+    gate.hidden = true; notesApp.hidden = false;
+    signedInLabel.textContent = user.email || "Signed in learner";
+    signOutBtn.hidden = false;
+    window.dispatchEvent(new CustomEvent("urh-auth-ready", {detail:{uid:user.uid}}));
+  } else {
+    notesApp.hidden = true; gate.hidden = false;
+    signedInLabel.textContent = "Not signed in"; signOutBtn.hidden = true;
+  }
+});
+signOutBtn.addEventListener("click", async () => { await signOut(auth); window.location.href = "signin.html"; });
+</script>
+<script src="notes.js"></script>
+</body></html>

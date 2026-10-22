@@ -1,0 +1,678 @@
+[
+  {
+    "level": "P1",
+    "subject": "Mathematics",
+    "topic": "Counting and number recognition",
+    "objectives": [
+      "Count objects carefully",
+      "Read and write numbers from 1 to 20",
+      "Compare which group has more or fewer objects"
+    ],
+    "explanation": [
+      "A number tells us how many things there are. Count one object at a time and say the number words in order: one, two, three, four, five, and so on.",
+      "When counting, touch or point to each object once. Do not skip an object or count the same object twice.",
+      "Numbers can be compared. A group with 7 bottle tops has more than a group with 4 bottle tops. Four is fewer than seven."
+    ],
+    "example": "There are 5 mangoes and 3 oranges. 5 is greater than 3, so there are more mangoes. We write 5 > 3.",
+    "questions": [
+      "Write the numbers that come after 6, 7 and 8.",
+      "Draw 4 circles and 6 triangles. Which group has more?",
+      "Fill in the missing number: 1, 2, __, 4, 5."
+    ],
+    "answers": [
+      "7, 8 and 9",
+      "Triangles; 6 is more than 4",
+      "3"
+    ]
+  },
+  {
+    "level": "P1",
+    "subject": "English",
+    "topic": "Naming words (nouns)",
+    "objectives": [
+      "Explain what a naming word is",
+      "Identify people, animals, places and things",
+      "Use naming words in simple sentences"
+    ],
+    "explanation": [
+      "A naming word is called a noun. It names a person, animal, place or thing.",
+      "Examples of people are teacher, mother and child. Examples of animals are goat, cow and bird. Examples of places are school, home and market. Examples of things are book, cup and ball.",
+      "A sentence can contain a naming word: The girl has a book. The words girl and book are nouns."
+    ],
+    "example": "In “The cow eats grass,” cow and grass are naming words.",
+    "questions": [
+      "Underline the nouns: The boy kicks a ball.",
+      "Name two animals and two things found in a classroom.",
+      "Make one sentence using the word teacher."
+    ],
+    "answers": [
+      "boy, ball",
+      "Possible answers: goat, hen; book, desk",
+      "Answers will vary; e.g. The teacher reads a book."
+    ]
+  },
+  {
+    "level": "P2",
+    "subject": "Mathematics",
+    "topic": "Addition of two-digit numbers",
+    "objectives": [
+      "Explain addition as putting groups together",
+      "Add two-digit numbers without carrying",
+      "Check an addition answer"
+    ],
+    "explanation": [
+      "Addition means joining groups to find the total. The plus sign is + and the equals sign is =.",
+      "Line up tens under tens and ones under ones. Add the ones first, then add the tens.",
+      "You can check by counting forward or by reversing the operation using subtraction when you know it."
+    ],
+    "example": "23 + 14: ones 3 + 4 = 7; tens 2 tens + 1 ten = 3 tens. Therefore 23 + 14 = 37.",
+    "questions": [
+      "12 + 15 = ?",
+      "34 + 22 = ?",
+      "A pupil has 21 pencils and gets 13 more. How many pencils are there altogether?"
+    ],
+    "answers": [
+      "27",
+      "56",
+      "34 pencils"
+    ]
+  },
+  {
+    "level": "P2",
+    "subject": "English",
+    "topic": "Action words (verbs)",
+    "objectives": [
+      "Identify verbs as action words",
+      "Choose verbs that fit a sentence",
+      "Write simple sentences with verbs"
+    ],
+    "explanation": [
+      "A verb is a word that tells what someone or something does. Examples include run, jump, read, cook, sing and write.",
+      "A sentence usually needs a verb to tell what is happening. We say “The baby sleeps,” not “The baby sleep” when talking about one baby in the present simple.",
+      "Some verbs describe actions we cannot easily see, such as think, know and like."
+    ],
+    "example": "“The pupils sing a song.” The verb is sing.",
+    "questions": [
+      "Find the verb: The dog barks loudly.",
+      "Complete: A bird ___ in the sky. (flies / table)",
+      "Write a sentence using the verb read."
+    ],
+    "answers": [
+      "barks",
+      "flies",
+      "Answers will vary."
+    ]
+  },
+  {
+    "level": "P3",
+    "subject": "Mathematics",
+    "topic": "Multiplication as repeated addition",
+    "objectives": [
+      "Describe multiplication as equal groups",
+      "Write repeated addition as multiplication",
+      "Solve simple multiplication questions"
+    ],
+    "explanation": [
+      "Multiplication is a quick way of adding equal groups. If there are 3 groups with 4 mangoes in each group, we can add 4 + 4 + 4.",
+      "The repeated addition 4 + 4 + 4 equals 12. It can be written as 3 × 4 = 12, meaning 3 groups of 4.",
+      "Remember that equal groups contain the same number of objects in each group."
+    ],
+    "example": "5 + 5 + 5 + 5 = 20, so 4 × 5 = 20.",
+    "questions": [
+      "Write 3 + 3 + 3 + 3 as a multiplication sentence.",
+      "6 × 2 = ?",
+      "There are 4 baskets with 3 oranges in each. How many oranges are there?"
+    ],
+    "answers": [
+      "4 × 3 = 12",
+      "12",
+      "12 oranges"
+    ]
+  },
+  {
+    "level": "P3",
+    "subject": "English",
+    "topic": "Capital letters and full stops",
+    "objectives": [
+      "Use capital letters at the beginning of sentences",
+      "Use capital letters for names",
+      "End statements with a full stop"
+    ],
+    "explanation": [
+      "Begin a sentence with a capital letter. Use capital letters for names of people and places, days of the week, and the word I.",
+      "A full stop (.) comes at the end of a statement. It tells the reader that the sentence has ended.",
+      "Read your sentence again to check that it begins with a capital letter and ends with the correct punctuation."
+    ],
+    "example": "incorrect: mary lives in kampala  correct: Mary lives in Kampala.",
+    "questions": [
+      "Rewrite correctly: john goes to school.",
+      "Add the missing full stop: We play netball",
+      "Write one sentence about your school."
+    ],
+    "answers": [
+      "John goes to school.",
+      "We play netball.",
+      "Answers will vary; check capital letter and full stop."
+    ]
+  },
+  {
+    "level": "P4",
+    "subject": "Mathematics",
+    "topic": "Fractions: halves and quarters",
+    "objectives": [
+      "Explain numerator and denominator",
+      "Recognise one-half and one-quarter",
+      "Find simple fractions of shapes or objects"
+    ],
+    "explanation": [
+      "A fraction shows equal parts of a whole. The denominator is the bottom number and tells how many equal parts make the whole. The numerator is the top number and tells how many parts are being considered.",
+      "One-half is written 1/2. One-quarter is written 1/4. The parts must be equal for the fraction to be fair.",
+      "To find one-half of 8 objects, share them into 2 equal groups: 8 ÷ 2 = 4. To find one-quarter of 8, share into 4 equal groups: 8 ÷ 4 = 2."
+    ],
+    "example": "One-quarter of 12 = 12 ÷ 4 = 3.",
+    "questions": [
+      "In 3/5, identify the numerator and denominator.",
+      "Find one-half of 18.",
+      "Find one-quarter of 20."
+    ],
+    "answers": [
+      "Numerator 3; denominator 5",
+      "9",
+      "5"
+    ]
+  },
+  {
+    "level": "P4",
+    "subject": "Integrated Science",
+    "topic": "Parts and functions of a flowering plant",
+    "objectives": [
+      "Name common parts of a flowering plant",
+      "Describe the function of roots, stem, leaves and flowers",
+      "Explain why plants need water and sunlight"
+    ],
+    "explanation": [
+      "The main parts of a flowering plant include roots, stem, leaves and flowers. Some plants also produce fruits and seeds.",
+      "Roots anchor the plant and absorb water and mineral salts from the soil. The stem supports the plant and carries water and food. Leaves make food using sunlight, water and carbon dioxide. Flowers help many plants reproduce by forming seeds after pollination and fertilisation.",
+      "Plants need water, light, air and suitable nutrients to grow well."
+    ],
+    "example": "A bean plant with damaged roots may wilt because it cannot absorb enough water.",
+    "questions": [
+      "Give two functions of roots.",
+      "Which plant part makes food?",
+      "Name two things plants need to grow."
+    ],
+    "answers": [
+      "Anchor the plant; absorb water and mineral salts",
+      "Leaves",
+      "Any two: water, light, air, nutrients"
+    ]
+  },
+  {
+    "level": "P5",
+    "subject": "Mathematics",
+    "topic": "Decimals and place value",
+    "objectives": [
+      "Identify tenths and hundredths",
+      "Write fractions as simple decimals",
+      "Add decimals with matching place values"
+    ],
+    "explanation": [
+      "A decimal point separates whole numbers from parts of a whole. In 3.47, 3 is the ones digit, 4 is the tenths digit and 7 is the hundredths digit.",
+      "One tenth is 0.1 and one hundredth is 0.01. Ten tenths make one whole; one hundred hundredths make one whole.",
+      "When adding decimals, line up the decimal points so tenths are added to tenths and hundredths to hundredths."
+    ],
+    "example": "2.35 + 1.20 = 3.55. Line up the decimal points and add each place value.",
+    "questions": [
+      "What is the value of 6 in 4.68?",
+      "Write 7/10 as a decimal.",
+      "Calculate 3.25 + 2.40."
+    ],
+    "answers": [
+      "Six tenths, or 0.6",
+      "0.7",
+      "5.65"
+    ]
+  },
+  {
+    "level": "P5",
+    "subject": "Integrated Science",
+    "topic": "The human digestive system",
+    "objectives": [
+      "Name the main organs of digestion",
+      "Describe the path food follows",
+      "Explain why digestion is important"
+    ],
+    "explanation": [
+      "Digestion breaks large food substances into smaller soluble substances that the body can absorb and use.",
+      "Food passes through the mouth, oesophagus, stomach, small intestine and large intestine before waste leaves through the anus. The liver and pancreas also help digestion by producing substances that aid the process.",
+      "Teeth chew food and saliva begins digestion of starch. The stomach churns food and uses acid and enzymes. Most digested nutrients are absorbed through the small intestine. The large intestine absorbs much of the remaining water."
+    ],
+    "example": "Chewing a piece of cassava breaks it into smaller pieces and mixes it with saliva, making swallowing and digestion easier.",
+    "questions": [
+      "Name the tube that carries food from the mouth to the stomach.",
+      "Where are most digested nutrients absorbed?",
+      "Give one reason why we digest food."
+    ],
+    "answers": [
+      "Oesophagus",
+      "Small intestine",
+      "To make nutrients small and soluble enough for absorption and use"
+    ]
+  },
+  {
+    "level": "P6",
+    "subject": "Mathematics",
+    "topic": "Percentages",
+    "objectives": [
+      "Explain percent as parts out of 100",
+      "Convert simple fractions to percentages",
+      "Find a percentage of a quantity"
+    ],
+    "explanation": [
+      "Percent means “out of one hundred” and is written with the % sign. For example, 25% means 25 out of 100, or 25/100.",
+      "To find a percentage of a quantity, change the percentage to a fraction over 100 and multiply by the quantity, or find an easier fraction first.",
+      "10% is one-tenth; 50% is one-half; 25% is one-quarter."
+    ],
+    "example": "25% of 80 = 25/100 × 80 = 20.",
+    "questions": [
+      "Write 3/4 as a percentage.",
+      "Find 10% of 350.",
+      "A school has 200 pupils. If 40% are girls, how many girls are there?"
+    ],
+    "answers": [
+      "75%",
+      "35",
+      "80 girls"
+    ]
+  },
+  {
+    "level": "P6",
+    "subject": "Integrated Science",
+    "topic": "The water cycle",
+    "objectives": [
+      "Name the main stages of the water cycle",
+      "Explain evaporation, condensation and precipitation",
+      "Describe why the water cycle is important"
+    ],
+    "explanation": [
+      "The water cycle is the continuous movement of water between the Earth's surface and the atmosphere, powered mainly by the Sun and gravity.",
+      "Evaporation happens when heat changes liquid water into water vapour. Condensation happens when water vapour cools and forms tiny droplets, making clouds. Precipitation is water falling from clouds as rain or other forms. Water then collects in rivers, lakes, soil and oceans.",
+      "Plants also release water vapour through transpiration. Some rain infiltrates the soil and may replenish groundwater."
+    ],
+    "example": "Sun heats water in a lake → water evaporates → vapour cools into clouds → rain falls → water flows back to the lake.",
+    "questions": [
+      "What provides most of the energy for evaporation?",
+      "What is condensation?",
+      "Name two places where water collects after rain."
+    ],
+    "answers": [
+      "The Sun",
+      "Cooling of water vapour into liquid droplets",
+      "Examples: rivers, lakes, oceans, soil, reservoirs"
+    ]
+  },
+  {
+    "level": "P7",
+    "subject": "Mathematics",
+    "topic": "Fractions, decimals and percentages",
+    "objectives": [
+      "Convert common fractions to decimals and percentages",
+      "Compare quantities in different forms",
+      "Solve practical percentage problems"
+    ],
+    "explanation": [
+      "Fractions, decimals and percentages are different ways of describing parts of a whole. To convert a fraction to a decimal, divide the numerator by the denominator. To convert a decimal to a percentage, multiply by 100 and add the % sign.",
+      "Common equivalents include 1/2 = 0.5 = 50%, 1/4 = 0.25 = 25%, and 3/4 = 0.75 = 75%.",
+      "In percentage problems, identify the whole quantity first. If a question asks for 15% of 200, calculate 15/100 × 200."
+    ],
+    "example": "A bag costs UGX 40,000 and has a 10% discount. Discount = 10/100 × 40,000 = UGX 4,000. Sale price = UGX 36,000.",
+    "questions": [
+      "Convert 3/5 to a decimal and percentage.",
+      "Find 15% of 240.",
+      "A learner scores 42 out of 60. Express the score as a percentage."
+    ],
+    "answers": [
+      "0.6 and 60%",
+      "36",
+      "42/60 × 100 = 70%"
+    ]
+  },
+  {
+    "level": "P7",
+    "subject": "Integrated Science",
+    "topic": "The human respiratory system",
+    "objectives": [
+      "Name the main parts of the respiratory system",
+      "Explain inhalation and exhalation",
+      "Describe how to keep the respiratory system healthy"
+    ],
+    "explanation": [
+      "The respiratory system takes oxygen into the body and removes carbon dioxide. Main parts include the nose, trachea, bronchi, lungs and diaphragm.",
+      "During inhalation, the diaphragm contracts and flattens, the chest cavity becomes larger, and air enters the lungs. During exhalation, the diaphragm relaxes, the chest cavity becomes smaller, and air moves out.",
+      "In the lungs, oxygen passes from air sacs into the blood while carbon dioxide passes from the blood into the air sacs to be breathed out."
+    ],
+    "example": "During running, breathing becomes faster because muscles need more oxygen and produce more carbon dioxide.",
+    "questions": [
+      "Name the muscle that helps change the size of the chest cavity.",
+      "Where does gas exchange occur in the lungs?",
+      "Give two ways of keeping the respiratory system healthy."
+    ],
+    "answers": [
+      "Diaphragm",
+      "Air sacs (alveoli)",
+      "Examples: avoid smoking and smoke; exercise; reduce dust exposure; seek treatment for respiratory infections"
+    ]
+  },
+  {
+    "level": "S1",
+    "subject": "Mathematics",
+    "topic": "Integers and the number line",
+    "objectives": [
+      "Recognise positive and negative integers",
+      "Compare integers using a number line",
+      "Add integers with the same sign"
+    ],
+    "explanation": [
+      "Integers are whole numbers, their negatives, and zero. Examples are -4, -1, 0, 2 and 9. Fractions and decimals such as 1/2 and 2.4 are not integers.",
+      "On a number line, numbers increase as you move right and decrease as you move left. Therefore -2 is greater than -5 because -2 lies to the right of -5.",
+      "When adding integers with the same sign, add their sizes and keep the sign. For example, -3 + -2 = -5. When signs differ, subtract the smaller absolute value from the larger and keep the sign of the number with the larger absolute value."
+    ],
+    "example": "-6 + 2 = -4 because 6 has the larger absolute value and its sign is negative.",
+    "questions": [
+      "Arrange -3, 4, 0 and -1 in ascending order.",
+      "Calculate -5 + -7.",
+      "Calculate 8 + (-11)."
+    ],
+    "answers": [
+      "-3, -1, 0, 4",
+      "-12",
+      "-3"
+    ]
+  },
+  {
+    "level": "S1",
+    "subject": "Biology",
+    "topic": "Introduction to cells",
+    "objectives": [
+      "Define a cell",
+      "Name basic parts of a typical cell",
+      "Compare plant and animal cells"
+    ],
+    "explanation": [
+      "A cell is the basic structural and functional unit of a living organism. Some organisms consist of one cell, while plants and animals are made of many cells.",
+      "The cell membrane controls movement of substances into and out of the cell. Cytoplasm is where many chemical reactions occur. The nucleus contains genetic material and controls many cell activities.",
+      "Plant cells usually have a cellulose cell wall, chloroplasts in photosynthetic tissues, and a large permanent vacuole. Animal cells do not have a cellulose cell wall or chloroplasts."
+    ],
+    "example": "A leaf cell may contain chloroplasts to absorb light for photosynthesis; a cheek cell does not contain chloroplasts.",
+    "questions": [
+      "What is a cell?",
+      "State the function of the cell membrane.",
+      "Give two structures found in a typical plant cell but not an animal cell."
+    ],
+    "answers": [
+      "The basic structural and functional unit of life",
+      "Controls movement of substances into and out of the cell",
+      "Cellulose cell wall and chloroplasts (in photosynthetic cells)"
+    ]
+  },
+  {
+    "level": "S2",
+    "subject": "Mathematics",
+    "topic": "Algebraic expressions",
+    "objectives": [
+      "Identify variables, coefficients and constants",
+      "Collect like terms",
+      "Substitute values into expressions"
+    ],
+    "explanation": [
+      "An algebraic expression combines numbers, variables and operations. A variable is a letter representing a number, such as x. In 5x + 3, 5 is the coefficient of x and 3 is the constant.",
+      "Like terms have the same variable raised to the same power. They can be combined: 3x + 2x = 5x, but 3x + 2y cannot be combined into one term.",
+      "To evaluate an expression, replace each variable with the given value and calculate using the correct order of operations."
+    ],
+    "example": "Simplify 4a + 3a - 2 = 7a - 2. If a = 2, the value is 14 - 2 = 12.",
+    "questions": [
+      "Simplify 6x + 2x - 5.",
+      "Evaluate 3y + 4 when y = 5.",
+      "Explain why 2a and 2b are not like terms."
+    ],
+    "answers": [
+      "8x - 5",
+      "19",
+      "They contain different variables."
+    ]
+  },
+  {
+    "level": "S2",
+    "subject": "Biology",
+    "topic": "Nutrition in plants",
+    "objectives": [
+      "Define photosynthesis",
+      "State the raw materials and conditions for photosynthesis",
+      "Write the word equation for photosynthesis"
+    ],
+    "explanation": [
+      "Photosynthesis is the process by which green plants use light energy absorbed by chlorophyll to make glucose from carbon dioxide and water, releasing oxygen.",
+      "Carbon dioxide enters leaves mainly through stomata. Water is absorbed by roots and transported through xylem. Chlorophyll in chloroplasts absorbs light energy.",
+      "Photosynthesis needs light, chlorophyll, carbon dioxide and water. Glucose may be used in respiration, stored as starch, or used to make other substances."
+    ],
+    "example": "Carbon dioxide + water —(light and chlorophyll)→ glucose + oxygen.",
+    "questions": [
+      "Name the green pigment needed for photosynthesis.",
+      "Where do plants obtain carbon dioxide?",
+      "Why is light needed for photosynthesis?"
+    ],
+    "answers": [
+      "Chlorophyll",
+      "From the air, entering mainly through stomata",
+      "It provides energy for the process."
+    ]
+  },
+  {
+    "level": "S3",
+    "subject": "Mathematics",
+    "topic": "Linear equations in one unknown",
+    "objectives": [
+      "Recognise a linear equation",
+      "Solve equations using inverse operations",
+      "Check a solution by substitution"
+    ],
+    "explanation": [
+      "An equation states that two expressions are equal. A linear equation in one unknown has a variable whose highest power is 1, such as 3x + 5 = 20.",
+      "Keep the equation balanced by performing the same operation on both sides. Use inverse operations: addition is undone by subtraction, and multiplication is undone by division.",
+      "After solving, substitute your answer into the original equation to check that both sides are equal."
+    ],
+    "example": "3x + 5 = 20. Subtract 5 from both sides: 3x = 15. Divide by 3: x = 5. Check: 3(5)+5 = 20.",
+    "questions": [
+      "Solve 2x + 7 = 19.",
+      "Solve 5y - 4 = 21.",
+      "Check whether x = 4 solves 3x + 2 = 14."
+    ],
+    "answers": [
+      "x = 6",
+      "y = 5",
+      "Yes; 3(4)+2 = 14"
+    ]
+  },
+  {
+    "level": "S3",
+    "subject": "Chemistry",
+    "topic": "Acids, bases and indicators",
+    "objectives": [
+      "Describe common properties of acids and bases",
+      "Explain the use of indicators",
+      "Interpret the pH scale"
+    ],
+    "explanation": [
+      "Acids in water produce hydrogen ions, while alkalis are soluble bases that produce hydroxide ions in water. Laboratory chemicals must never be tasted or touched to identify them.",
+      "Indicators change colour depending on whether a solution is acidic, neutral or alkaline. Blue litmus turns red in acid; red litmus turns blue in alkali. Universal indicator gives a range of colours linked to pH.",
+      "The pH scale is commonly shown from 0 to 14: values below 7 are acidic, 7 is neutral, and values above 7 are alkaline. Stronger acids have lower pH values."
+    ],
+    "example": "A solution with pH 3 is acidic; a solution with pH 7 is neutral.",
+    "questions": [
+      "What colour does blue litmus turn in acid?",
+      "Classify pH 11 as acidic, neutral or alkaline.",
+      "Why should learners never taste laboratory chemicals?"
+    ],
+    "answers": [
+      "Red",
+      "Alkaline",
+      "They may be poisonous, corrosive or otherwise harmful."
+    ]
+  },
+  {
+    "level": "S4",
+    "subject": "Mathematics",
+    "topic": "Statistics: mean, median, mode and range",
+    "objectives": [
+      "Calculate the mean of a data set",
+      "Find the median and mode",
+      "Calculate the range and interpret results"
+    ],
+    "explanation": [
+      "The mean is the sum of all observations divided by the number of observations. The median is the middle value after arranging the data in order. The mode is the value that occurs most often.",
+      "The range is the largest value minus the smallest value. It gives a simple measure of spread.",
+      "For an even number of observations, the median is the mean of the two middle values after arranging the data."
+    ],
+    "example": "For 2, 3, 3, 6, 11: mean = 25/5 = 5; median = 3; mode = 3; range = 11 - 2 = 9.",
+    "questions": [
+      "Find the mean of 4, 6, 8 and 10.",
+      "Find the median of 1, 3, 7, 9, 12.",
+      "Find the mode and range of 5, 5, 6, 8, 10."
+    ],
+    "answers": [
+      "7",
+      "7",
+      "Mode = 5; range = 10 - 5 = 5"
+    ]
+  },
+  {
+    "level": "S4",
+    "subject": "Biology",
+    "topic": "Reproduction in flowering plants",
+    "objectives": [
+      "Identify parts of a flower involved in reproduction",
+      "Distinguish pollination from fertilisation",
+      "Explain how seeds and fruits form"
+    ],
+    "explanation": [
+      "The stamen is the male reproductive part of a flower and includes anther and filament. The carpel or pistil is the female part and includes stigma, style and ovary.",
+      "Pollination is the transfer of pollen grains from anther to stigma. Fertilisation occurs when the male nucleus from a pollen grain fuses with the female nucleus in an ovule.",
+      "After fertilisation, the ovule develops into a seed and the ovary usually develops into a fruit. Pollination may be carried out by insects, wind or other agents."
+    ],
+    "example": "A bee may carry pollen from the anther of one flower to the stigma of another flower of the same species.",
+    "questions": [
+      "Define pollination.",
+      "Which flower part contains ovules?",
+      "State one difference between pollination and fertilisation."
+    ],
+    "answers": [
+      "Transfer of pollen from anther to stigma",
+      "Ovary",
+      "Pollination is pollen transfer; fertilisation is fusion of male and female nuclei."
+    ]
+  },
+  {
+    "level": "S5",
+    "subject": "Mathematics",
+    "topic": "Functions and function notation",
+    "objectives": [
+      "Explain the meaning of a function",
+      "Evaluate a function for a given input",
+      "Find a simple value of an unknown using function notation"
+    ],
+    "explanation": [
+      "A function is a rule that assigns exactly one output to each allowed input. The notation f(x) means the value of function f when the input is x; it does not mean f multiplied by x.",
+      "To evaluate a function, substitute the input wherever x appears and simplify using the order of operations.",
+      "The domain is the set of allowed inputs. Some functions have restrictions, for example a denominator must not be zero."
+    ],
+    "example": "If f(x) = 2x² - 3, then f(2) = 2(2²) - 3 = 8 - 3 = 5.",
+    "questions": [
+      "If f(x)=3x+1, find f(4).",
+      "If g(x)=x²-5, find g(-2).",
+      "For h(x)=1/(x-3), state the value of x that is not allowed."
+    ],
+    "answers": [
+      "13",
+      "-1",
+      "x = 3"
+    ]
+  },
+  {
+    "level": "S5",
+    "subject": "Biology",
+    "topic": "Cell structure and specialised cells",
+    "objectives": [
+      "Describe the roles of major cell structures",
+      "Explain cell specialisation",
+      "Relate structure to function in examples"
+    ],
+    "explanation": [
+      "Cells contain structures that perform different functions. The nucleus contains DNA and helps regulate cell activities; mitochondria release usable energy through aerobic respiration; ribosomes build proteins; and the cell membrane controls exchange with the surroundings.",
+      "Cell specialisation means a cell has features adapted to a particular job. In multicellular organisms, specialised cells work together in tissues and organs.",
+      "A red blood cell has a biconcave shape and contains haemoglobin for transporting oxygen. A root hair cell has a long projection that increases surface area for absorbing water and mineral ions."
+    ],
+    "example": "The long root hair increases contact with soil particles, helping the plant absorb water and mineral ions efficiently.",
+    "questions": [
+      "What is the role of mitochondria?",
+      "Give one adaptation of a red blood cell for its function.",
+      "How does a root hair cell's shape help it?"
+    ],
+    "answers": [
+      "Release energy through aerobic respiration",
+      "Biconcave shape; haemoglobin; no nucleus in a mature mammalian red blood cell",
+      "Its long projection increases surface area for absorption."
+    ]
+  },
+  {
+    "level": "S6",
+    "subject": "Mathematics",
+    "topic": "Differentiation from first principles and basic rules",
+    "objectives": [
+      "Interpret a derivative as a gradient or rate of change",
+      "Differentiate simple powers of x",
+      "Evaluate a derivative at a given point"
+    ],
+    "explanation": [
+      "Differentiation measures how a function changes. Geometrically, the derivative at a point gives the gradient of the tangent to the curve there; in applications it can represent an instantaneous rate of change.",
+      "For a power function y = axⁿ, the power rule gives dy/dx = anxⁿ⁻¹. A constant differentiates to zero, and the derivative of a sum is the sum of the derivatives.",
+      "Always simplify carefully and remember that differentiation reduces the power by one while multiplying by the original power."
+    ],
+    "example": "If y = 3x² + 4x - 7, then dy/dx = 6x + 4. At x = 2, the gradient is 6(2)+4 = 16.",
+    "questions": [
+      "Differentiate y = 5x³.",
+      "Differentiate y = 4x² - 3x + 8.",
+      "Find dy/dx for y = x² at x = 3."
+    ],
+    "answers": [
+      "15x²",
+      "8x - 3",
+      "dy/dx = 2x, so the gradient is 6"
+    ]
+  },
+  {
+    "level": "S6",
+    "subject": "Biology",
+    "topic": "Genetics: genes, alleles and inheritance",
+    "objectives": [
+      "Distinguish genes and alleles",
+      "Explain genotype and phenotype",
+      "Use a simple genetic cross to predict outcomes"
+    ],
+    "explanation": [
+      "A gene is a section of DNA associated with a characteristic or biological function. Alleles are different forms of the same gene. In diploid organisms, an individual generally has two alleles for each autosomal gene, one inherited from each parent.",
+      "The genotype is the allele combination an organism carries, such as TT, Tt or tt. The phenotype is the observable characteristic produced by the genotype and the environment.",
+      "In a simple dominant-recessive model, a dominant allele can mask the effect of a recessive allele in a heterozygote. Real inheritance can be more complex, and not all traits follow this pattern."
+    ],
+    "example": "For T = tall (dominant) and t = short (recessive), Tt × Tt can produce TT, Tt, Tt and tt. The expected genotype ratio is 1:2:1 and, under this simple model, the phenotype ratio is 3 tall : 1 short.",
+    "questions": [
+      "What is an allele?",
+      "State the difference between genotype and phenotype.",
+      "For Tt × Tt, what fraction of offspring are expected to be tt?"
+    ],
+    "answers": [
+      "An alternative form of a gene",
+      "Genotype is the allele combination; phenotype is the observable characteristic",
+      "1/4 or 25%"
+    ]
+  }
+]
