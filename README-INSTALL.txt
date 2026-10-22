@@ -1,29 +1,31 @@
-UGANDA REVISION HUB — STUDY NOTES BATCH 1
+UGANDA REVISION HUB — NOTES BATCH 2
 
-UPLOAD THESE FILES TO THE ROOT OF YOUR EXISTING GITHUB PAGES REPOSITORY:
-- index.html (updated homepage links to Study Notes)
-- styles.css (homepage styling plus notes entry-card styling)
-- notes.html (online notes page; requires a signed-in Firebase Authentication user)
-- notes.css (notes page styling)
-- notes.js (lesson selector, questions, answers, print-to-PDF, editable personal notes)
-- notes-data.json (starter lesson content)
-- p1-starter-notes.pdf through p7-starter-notes.pdf
-- s1-starter-notes.pdf through s6-starter-notes.pdf
-- uganda-revision-hub-starter-notes-batch1.pdf (combined PDF for all 26 lessons)
+WHAT IS INCLUDED
+- index.html and styles.css (homepage files from Batch 1)
+- notes.html, notes.css, notes.js, notes-data.json
+- Individual lesson HTML pages for every starter lesson in Batch 1
+- lesson.css and LESSON-PAGES-INDEX.html
+- PDFs for P1–P7 and S1–S6, plus combined PDF
 
-The ZIP also includes a notes-pdf/ folder containing duplicate copies of the 13 class PDFs for organisation; you do not need to upload that folder because the website's download buttons use the PDFs in the repository root.
+UPLOAD STEPS (GitHub repository)
+1. Unzip this package on your phone or computer.
+2. Open your website repository and its main branch.
+3. Upload all files and folders in this package into the SAME folder as index.html (repository root).
+4. Keep the PDF filenames exactly as supplied and do not put the root PDFs inside a subfolder.
+5. Commit changes, wait for GitHub Pages to finish deploying, then refresh the website.
+6. Test notes.html, LESSON-PAGES-INDEX.html, one individual lesson page, and one PDF download.
 
-KEEP your existing website files, including signin.html, signup.html, download.html, p7.html, s4.html, s6.html, privacy.html and other assets. Do not upload the ZIP itself as the homepage.
+WHY LINKS FAILED BEFORE
+The earlier uploaded set may have been incomplete or some assets may not have been placed beside notes.html. The notes page requires notes.js, notes.css, notes-data.json, and the PDFs. This package includes them. Upload all of them together.
 
-HOW TO TEST:
-1. Upload/replace index.html and styles.css.
-2. Upload notes.html, notes.css, notes.js, notes-data.json, all 13 class PDFs, and the combined PDF to the repository root.
-3. Commit changes on the main branch.
-4. Open the website and sign in, then tap Study notes. Choose a class and subject.
-5. Tap “Download class PDF” for the class PDF, or “Print / Save this lesson as PDF” for one lesson.
+PDF DOWNLOAD TROUBLESHOOTING
+- Check that p1-starter-notes.pdf (or the selected class PDF) appears in the repository root.
+- Check that the filename uses lowercase letters exactly.
+- Open the PDF URL directly in the browser to test it.
+- If GitHub Pages is deployed from a subfolder such as /docs, put all these files there together and set Pages to that folder.
 
-IMPORTANT SECURITY NOTE:
-The page checks Firebase Authentication before showing the lesson interface, but the lesson data JSON and PDFs are static files in a public GitHub Pages repository. This is a sign-in gate, not strong content protection: a technically skilled visitor could access the files directly. To enforce account-only access, the lesson content and PDFs must be moved to Firebase Firestore/Storage with restrictive authenticated-user security rules. Do not store passwords or sensitive information in the personal notes box; personal notes currently save in the local browser only and do not sync between devices.
+CURRICULUM NOTE
+Secondary lessons use original practice scenarios and competency-based answer guidance, not official UNEB questions or official marking schemes. Match content to current NCDC syllabuses and official assessment guidance. Primary pages use age-appropriate everyday-life activities. This is a starter library, not a complete P1–S6 syllabus.
 
-CONTENT SCOPE:
-Batch 1 includes 26 starter lessons across P1–P7 and S1–S6 (two lessons for each class). This is not yet the complete set of all curriculum topics. Further batches should be added class-by-class and subject-by-subject and checked against the current NCDC syllabus and teacher guidance.
+IMPORTANT SECURITY NOTE
+Static HTML, JSON and PDF files in a public GitHub Pages repository can be accessed directly by anyone, even if a page displays a sign-in gate. Do not store confidential files here. True access restriction requires authenticated backend storage with appropriate security rules.

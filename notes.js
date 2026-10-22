@@ -41,6 +41,8 @@ function showLesson(x){
   if(!x)return; activeLesson=x;
   lessonMeta.innerHTML=`<span>${esc(x.level)}</span><span>•</span><span>${esc(x.subject)}</span>`;
   lessonTitle.textContent=x.topic;
+  const oldLink=document.getElementById("openFullLesson"); if(oldLink) oldLink.remove();
+  const fullLink=document.createElement("a"); fullLink.id="openFullLesson"; fullLink.className="btn btn-outline"; fullLink.textContent="Open this lesson as its own page"; fullLink.href=`${x.level.toLowerCase()}-${x.subject.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}-${x.topic.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}.html`; lessonTitle.insertAdjacentElement("afterend",fullLink);
   lessonContent.innerHTML=`<h3>What you will learn</h3><ul>${x.objectives.map(t=>`<li>${esc(t)}</li>`).join("")}</ul><h3>Lesson notes</h3>${x.explanation.map(t=>`<p>${esc(t)}</p>`).join("")}<div class="example-box"><strong>Worked example</strong><p>${esc(x.example)}</p></div>`;
   questionList.innerHTML=x.questions.map(t=>`<li>${esc(t)}</li>`).join("");
   answerList.innerHTML=x.answers.map(t=>`<li>${esc(t)}</li>`).join("");
@@ -65,9 +67,9 @@ document.getElementById("clearOwnNotes").addEventListener("click",()=>{
 document.getElementById("downloadLesson").addEventListener("click",()=>window.print());
 document.getElementById("downloadClass").addEventListener("click",()=>{
  const level=levelSelect.value;
- const a=document.createElement("a");a.href=`${level.toLowerCase()}-starter-notes.pdf`;a.download=`${level}-starter-notes.pdf`;a.click();
+ const a=document.createElement("a");a.href=`./${level.toLowerCase()}-starter-notes.pdf`;a.download=`${level}-starter-notes.pdf`;a.click();
 });
 window.addEventListener("urh-auth-ready",e=>{activeUid=e.detail?.uid || "guest";});
-fetch("notes-data.json").then(r=>{if(!r.ok)throw new Error("Could not load notes");return r.json();}).then(data=>{
+fetch("./notes-data.json").then(r=>{if(!r.ok)throw new Error("Could not load notes");return r.json();}).then(data=>{
  allLessons=data;fillLevels();
 }).catch(err=>{lessonTitle.textContent="Notes could not be loaded";lessonContent.innerHTML="<p>Please refresh the page and check that notes-data.json was uploaded beside notes.html.</p>";console.error(err);});
